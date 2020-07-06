@@ -1,0 +1,43 @@
+@startuml
+actor User
+
+== First time app running ==
+"User" <-- "Mobile APP": Draw initial screen
+User -> "Mobile APP": Enter phone number
+"Mobile APP" -> "User API": **POST /v2/registration/**
+"User API" -> "SMS Gateway": Send SMS code
+"Mobile APP" <- "User API": Response code **200**
+"User" <-- "Mobile APP": Draw verification screen
+"User" <-- "SMS Gateway": SMS code received
+"User" -> "Mobile APP": Entre SMS code
+
+... First time login (new ueser registration) ...
+
+"Mobile APP" -> "User API": **POST /login/**
+"User API" -> "Mobile APP": Response with **token** is_new=True,
+"User" <-- "Mobile APP": Draw Screen with agreements
+"User" --> "Mobile APP": User accept
+
+"Mobile APP" -> "User API": **PATCH /v2/users/** tos_agreed=True
+"User API" -> "Mobile APP": Response **200**
+
+"User" <-- "Mobile APP": Draw Profile form
+"User" --> "Mobile APP": Enter required data
+
+"Mobile APP" -> "User API": **PATCH /v2/users/** ...
+"User API" -> "Mobile APP": Response **200**
+"User" <-- "Mobile APP": Change Screen to Dashboard
+
+
+... Regular user login (alaready exists) ...
+
+"Mobile APP" -> "User API": **POST /login/**
+"User API" -> "Mobile APP": Response with **token**
+"User" <-- "Mobile APP": Change Screen to Dashboard
+
+
+... Finalazling ...
+
+"Mobile APP" ---> "WebSocket": Open WebSocket connection
+"Mobile APP" <-- "WebSocket": WebSocket connection openned
+@stopuml

@@ -1,0 +1,38 @@
+{
+  "name": "Oraaange",
+  "repository": "https://github.com/osminogin/oraaange",
+  "keywords": ["django", "geo-dating", "geolocation", "openapi", "python"],
+  "addons": [
+    "heroku-postgresql:hobby-dev",
+    "cloudamqp:lemur"
+  ],
+  "buildpacks": [
+    {"url": "https://github.com/heroku/heroku-buildpack-apt"},
+    {"url": "https://github.com/heroku/heroku-geo-buildpack"},
+    {"url": "heroku/python"}
+  ],
+  "formation": {
+    "web": {"quantity": 1, "size": "free"},
+    "worker": {"quantity": 1, "size": "free"}
+  },
+  "env": {
+    "DEBUG": "False",
+    "SECRET_KEY": {
+      "description": "A secret key for a particular installation.",
+      "generator": "secret"
+    },
+    "AWS_ACCESS_KEY_ID": "Q3AM3UQ867SPQQA43P2F",
+    "AWS_SECRET_ACCESS_KEY": "zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG",
+    "AWS_STORAGE_BUCKET_NAME": "oraaange-files",
+    "AWS_AUTO_CREATE_BUCKET": "True",
+    "AWS_S3_ENDPOINT_URL": "https://play.min.io:9000",
+    "WEB_CONCURRENCY": {
+      "description": "The number of web processes.",
+      "value": "4"
+    },
+    "WORKER_PROCESSES": {
+      "description": "The number of workers to run.",
+      "value": "1"
+    }
+  }
+}

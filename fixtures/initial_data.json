@@ -1,0 +1,95 @@
+[
+{
+    "model": "users.smscode",
+    "pk": 1,
+    "fields": {
+        "code": "1234",
+        "sended": "2018-07-30T13:38:55.388Z"
+    }
+},
+{
+    "model": "users.smscode",
+    "pk": 2,
+    "fields": {
+        "code": "4321",
+        "sended": "2018-07-30T13:38:55.388Z"
+    }
+},
+{
+    "model": "users.User",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$36000$bJ6V1cGHH4Rt$ayRGy966o0N7vPB6AILz/KsaCdPR/1rXCJtPyTV+1IQ=",
+        "uuid": "5f479292-bfa0-42fe-bd4b-f9ffb223af4f",
+        "last_login": null,
+        "is_superuser": true,
+        "username": "79266635666",
+        "display_name": "Vladimir Osintsev",
+        "email": "osintsev@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2020-06-21T12:35:59.118Z",
+        "location": "SRID=4326;POINT (55.508237 36.031376)",
+        "sms_code": 1,
+        "sex": "M",
+        "groups": [],
+        "user_permissions": [],
+        "birth_date": "1985-01-18",
+        "confirm_tos": true
+    }
+},
+{
+    "model": "users.User",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$36000$riERtg5WLwae$P3h5XmZVYBAGhHwCX+uCWvJYmnIfTFfOdvnvmVtdKYA=",
+        "uuid": "54bac3d6-f998-49c2-9c95-8e4a232eeded",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "79771995666",
+        "display_name": "Test User",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2018-05-21T12:36:35.932Z",
+        "location": "SRID=4326;POINT (55.708517 37.634860)",
+        "sms_code": 2,
+        "groups": [],
+        "user_permissions": [],
+        "sex": "F",
+        "birth_date": "1970-11-12",
+        "confirm_tos": true
+    }
+},
+{
+    "model": "files.file",
+    "pk": 1,
+    "fields": {
+        "uuid": "db03f8c3-3d88-43a1-926b-42a277c8cdad",
+        "created_at": "2019-08-19T11:37:29.298Z",
+        "updated_at": "2019-08-19T11:37:29.298Z",
+        "deleted_at": null,
+        "user": 1,
+        "file": "db03f8c3-3d88-43a1-926b-42a277c8cdad",
+        "orig_name": "README.md",
+        "file_type": "document",
+        "mime_type": "text/markdown",
+        "is_uploaded": true
+    }
+},
+{
+    "model": "files.file",
+    "pk": 2,
+    "fields": {
+        "uuid": "eb146265-6b54-4599-810e-9281aded3488",
+        "created_at": "2019-08-23T13:56:42.229Z",
+        "updated_at": "2019-08-23T13:56:42.229Z",
+        "deleted_at": null,
+        "user": 2,
+        "file": "eb146265-6b54-4599-810e-9281aded3488",
+        "orig_name": "93cOIhP3kfk.jpg",
+        "file_type": "image",
+        "mime_type": "image/jpeg",
+        "is_uploaded": true
+    }
+}
+]

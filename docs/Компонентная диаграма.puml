@@ -1,0 +1,79 @@
+@startuml
+actor User
+actor Moderator
+actor Superuser
+
+rectangle "Limon" {
+
+rectangle "Mobile APP" {
+    component AndroidAPP [
+        **Android APP**
+    ]
+}
+
+rectangle "Backend" {
+    component UserAPI [
+        **User API**
+        ----
+        RESTful API
+        Authenticatin
+        Objects CRUD
+    ]
+    component WSServer [
+        **WebSocket Sever**
+        ----
+        Events delivery
+    ]
+
+    component AdminPanel [
+        Control panel
+    ]
+
+    database PostgreSQL [
+        **PostgreSQL**
+        ----
+        PostGIS
+        ----
+        Geocoding?
+    ]
+    cloud minio [
+        **minio**
+        ----
+        Object storage
+    ]
+}
+
+AdminPanel == UserAPI
+
+rectangle "Services"<<External>> {
+    agent GoogleMAPS [
+        Google Maps
+        ----
+        Geocoding?
+    ]
+    agent SMS.ru [
+        SMS gateway
+    ]
+}
+
+AndroidAPP == UserAPI
+AndroidAPP == WSServer
+AndroidAPP == GoogleMAPS
+UserAPI == PostgreSQL
+UserAPI == minio
+UserAPI == SMS.ru
+WSServer == PostgreSQL
+
+User --> AndroidAPP
+Moderator --> AdminPanel
+Superuser --> AdminPanel
+
+
+}
+
+footer
+<font color=red>Copyright (c) 2018, Limon JSC</font>
+Private License
+endfooter
+
+@enduml
